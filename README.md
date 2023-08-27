@@ -2,11 +2,10 @@
 This repository provides examples for how to use the Viam Robotics Python SDK within an AWS Lamdba, enabling robot control from the cloud.
 
 # Prerequisites
-1. Install [Docker] (https://www.docker.com/products/docker-desktop/)
-1. Install Python 3.8 or higher (Viam SDK does not support versions before 3.8). Check this with `python --version`
+1. Install [Docker](https://www.docker.com/products/docker-desktop/)
 1. Create an AWS account or use an existing account where you have permissions to modify AWS Lambda, API Gateway, and Identity and Access Management.
-1. Install the [AWS CLI] (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
-1. Authenticate your computer with the AWS CLI, usually using [aws configure, or some other authentication option] (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-methods)
+1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+1. Authenticate your computer with the AWS CLI, usually using [aws configure, or some other authentication option](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-methods)
 
 # Build and Deploy
 The following command will create a zip file containing all dependencies as well as lambda code written in lambda_functions.py. The command then uploads the .zip file to the existing AWS Lambda function.
@@ -19,7 +18,6 @@ You must run full-workflow when first starting a project and anytime you change 
 ```
 make append-workflow function=<functionname>
 ```
-
 # Secrets
 It is important to never expose your Viam secret or domain in code or other files. This example uses AWS Parameter Store, a feature within AWS Systems Manager, to store secrets in the cloud that are accessed in runtime by the lambda. The example requires two `SecureString` to be entered into Parameter Store: `/<robot_name>/location_secret` and `/<robot_name>/robot_fqdn`. On Viam's website you can copy these values on the Code Sample tab of your robot.
 
